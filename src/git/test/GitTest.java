@@ -40,7 +40,21 @@ public class GitTest {
         for (int i = 0; i < promedio.length; i++) {
             promedio[i]=(nota1[i]+nota2[i])/2;
         }
-        return promedio;        
+        return promedio;       
+    }
+    public static void imprimirestado(double promedio[]){
+        String estado[]= new String[3];
+        for (int i = 0; i < promedio.length; i++) {
+            if (promedio[i]>=7 && promedio[i]<=10) {
+                estado[i]="Aprobado";
+            }else{
+                estado[i]="Reprobado";
+            }
+        }
+        for (int i = 0; i < estado.length; i++) {
+            JOptionPane.showMessageDialog(null, 
+                    "Estado del estudiante "+i+"es:"+estado[i]);
+        }
     }
     
 }
