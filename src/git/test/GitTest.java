@@ -27,12 +27,21 @@ public class GitTest {
         final String GRUPO_SISTEMAS="Sis11A";
         JOptionPane.showMessageDialog(null, "Bienvenid@s a DAUTE");
         for (int i = 0; i < nota1.length; i++) {
+            nombre[i]= JOptionPane.showInputDialog("Ingrese su nombre "+(i+1));
             nota1[i]= Double.parseDouble(JOptionPane.
-                    showInputDialog("Ingrese nota 1 del estudiante"+i));
+                    showInputDialog("Ingrese nota 1 del estudiante "+(i+1)));
             nota2[i]= Double.parseDouble(JOptionPane.
-                    showInputDialog("Ingrese nota 1 del estudiante"+i));
-            nombre[i]= JOptionPane.showInputDialog("Ingrese su nombre"+i);
+                    showInputDialog("Ingrese nota 1 del estudiante "+(i+1)));            
+        }     
+        promedio=calcularpromedio(nota1, nota2);
+        imprimirestado(promedio);
+        for (int i = 0; i < promedio.length; i++) {
+            JOptionPane.showMessageDialog(null, "Datos estudiante "+(i+1)+""
+                    + "\n Nombre: "+nombre[i]+
+                    "\n Promedio: "+df.format(promedio[i])
+                            + "\n Del grupo: "+GRUPO_SISTEMAS);
         }
+        imprimirestado(promedio);
     }
     
     public static double[] calcularpromedio(double nota1[],double nota2[]){
@@ -40,7 +49,7 @@ public class GitTest {
         for (int i = 0; i < promedio.length; i++) {
             promedio[i]=(nota1[i]+nota2[i])/2;
         }
-        return promedio;       
+        return promedio;
     }
     public static void imprimirestado(double promedio[]){
         String estado[]= new String[3];
@@ -53,7 +62,7 @@ public class GitTest {
         }
         for (int i = 0; i < estado.length; i++) {
             JOptionPane.showMessageDialog(null, 
-                    "Estado del estudiante "+i+"es:"+estado[i]);
+                    "Estado del estudiante "+(i+1)+"es: "+estado[i]);
         }
     }
     
